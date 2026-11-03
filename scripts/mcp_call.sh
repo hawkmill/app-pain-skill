@@ -12,7 +12,9 @@
 # Environment (all optional):
 #   APP_PAIN_MCP_URL   default https://hawkmill.com/mcp
 #   APP_PAIN_API_KEY   optional; without it you get the free keyless allowance
-#                      (unlimited cached results + a few new analyses per day)
+#                      (unlimited cached results + a few new analyses per day).
+#                      If unset, the standard key file ~/.app-pain/api_key is used
+#                      (the /v1/verify response tells you to save the key there).
 #   APP_PAIN_PROXY     optional; e.g. http://127.0.0.1:7890 — only if YOUR network needs
 #                      an outbound proxy. Default is a direct connection (hawkmill.com is
 #                      reachable worldwide, mainland China included).
@@ -21,6 +23,12 @@ set -euo pipefail
 MCP_URL="${APP_PAIN_MCP_URL:-https://hawkmill.com/mcp}"
 API_KEY="${APP_PAIN_API_KEY:-}"
 PROXY="${APP_PAIN_PROXY:-}"
+
+# 标准存放处（2026-11-03）：env 没给就读 ~/.app-pain/api_key —— 注册响应指示把 key 存到这，
+# 跨会话/跨工具一处生效。文件不存在就维持无 key（匿名档照常工作）
+if [[ -z "$API_KEY" && -r "${HOME}/.app-pain/api_key" ]]; then
+  API_KEY="$(head -c 200 "${HOME}/.app-pain/api_key" | tr -d '[:space:]')"
+fi
 
 RAW=0
 if [[ "${1:-}" == "--raw" ]]; then RAW=1; shift; fi

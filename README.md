@@ -24,6 +24,16 @@ npx skills add hawkmill/app-pain-skill
 
 or manually: clone this repo and point your agent at the `SKILL.md`.
 
+## Upgrade
+
+The skill is a local copy of this repo — it does not auto-update. When the keyless allowance errors or docs drift, refresh:
+
+```bash
+npx skills update app-pain
+```
+
+Current version lives in `SKILL.md` frontmatter (`version:`). The MCP server needs no upgrade — it is remote and always current.
+
 ## Example prompts
 
 - *"What do users hate most about Duolingo, and is it getting better?"*

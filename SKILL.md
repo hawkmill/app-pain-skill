@@ -1,5 +1,6 @@
 ---
 name: app-pain
+version: "1.0.0"
 description: "Mine user pain points from iOS/Android app-store reviews — LLM-clustered negative reviews into structured pain points (share %, severity, verbatim evidence), with cross-app competitor comparison. No API key needed (free keyless allowance; cached results unlimited). Use when the user wants to research user pain points for an app category (meditation, short-video, habit trackers...), compare top apps' common complaints, dig into an app's negative reviews, or run competitor review analysis. Triggers: app pain points, review mining, negative review analysis, competitor comparison, mine pain points."
 ---
 
@@ -22,7 +23,17 @@ $SCRIPT mine_app_pain_points '{"store":"android","appId":"com.zhiliaoapp.musical
 $SCRIPT get_app_reviews '{"store":"android","appId":"com.zhiliaoapp.musically","page":1}'
 ```
 
-Optional: `export APP_PAIN_API_KEY=pa_...` for your own quota; `APP_PAIN_PROXY=http://...` only if your network needs an outbound proxy (direct connection works worldwide, mainland China included).
+Optional: for your own quota, register a free key once and save it to the standard location — no env var needed afterwards:
+
+```bash
+# register (asks referrer-optional; then check the email for the code)
+curl -sS -X POST https://hawkmill.com/v1/register -H 'Content-Type: application/json' -d '{"email":"you@example.com"}'
+curl -sS -X POST https://hawkmill.com/v1/verify   -H 'Content-Type: application/json' -d '{"email":"you@example.com","code":"123456"}'
+# the verify response includes a ready-made "saveKey.command" — it writes the key to ~/.app-pain/api_key
+# (chmod 600). mcp_call.sh reads APP_PAIN_API_KEY first, then that file — nothing else to configure.
+```
+
+`APP_PAIN_PROXY=http://...` only if your network needs an outbound proxy (direct connection works worldwide, mainland China included).
 
 Multi-app comparison: run `search_apps` for each app first, then fire multiple `mine_app_pain_points` **in parallel** (independent calls — same Bash block).
 
@@ -55,5 +66,5 @@ Multi-app comparison: run `search_apps` for each app first, then fire multiple `
 ## Troubleshooting
 
 - **Timeout / connection reset**: your network path is dropping long SSE streams. Try `APP_PAIN_PROXY` if you have one, or retry — cached results are instant.
-- **"Daily allowance of NEW (uncached) analyses is used up"**: keyless quota exhausted. Register a free key (https://hawkmill.com/#get-key) and `export APP_PAIN_API_KEY=pa_...`.
+- **"Daily allowance of NEW (uncached) analyses is used up"**: keyless quota exhausted. Register a free key (https://hawkmill.com/#get-key) and save it to `~/.app-pain/api_key` (or `export APP_PAIN_API_KEY=pa_...`).
 - **Empty or unparseable output**: re-run with `--raw` to inspect the raw SSE stream.
