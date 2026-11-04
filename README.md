@@ -1,6 +1,11 @@
 # app-pain — Agent Skill for app-store pain-point mining
 
+[![GitHub stars](https://img.shields.io/github/stars/hawkmill/app-pain-skill?style=flat-square)](https://github.com/hawkmill/app-pain-skill/stargazers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+
 An [Agent Skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) for [Claude Code](https://claude.com/code), Cursor, Codex and any agent that reads `SKILL.md`: mine iOS/Android app-store negative reviews into **structured pain points** — share %, severity, verbatim evidence — and compare competitors side by side.
+
+**Keywords**: MCP server · app store reviews · review mining · competitor analysis · pain points · Claude skills · Cursor · Codex · ASO intelligence
 
 Backed by the [App Pain API](https://hawkmill.com) (MCP-over-HTTP). **No API key needed** to start: the keyless allowance includes unlimited cached results (≈100 popular apps pre-analyzed) plus a few new analyses per day.
 
