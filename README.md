@@ -7,7 +7,7 @@ An [Agent Skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skil
 
 **Keywords**: MCP server · app store reviews · review mining · competitor analysis · pain points · Claude skills · Cursor · Codex · ASO intelligence
 
-Backed by the [App Pain API](https://hawkmill.com) (MCP-over-HTTP). **No API key needed** to start: the keyless allowance includes unlimited cached results (≈100 popular apps pre-analyzed) plus a few new analyses per day.
+Backed by the [App Pain API](https://hawkmill.com) (MCP-over-HTTP). **No API key needed** to start: the keyless allowance includes unlimited cached results (100+ popular apps pre-analyzed) plus a few new analyses per day.
 
 ## Why a skill instead of the MCP server?
 
