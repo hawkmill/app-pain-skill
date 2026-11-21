@@ -8,7 +8,7 @@ description: "Mine user pain points from iOS/Android app-store reviews — LLM-c
 
 Core value: structured pain-point output (`sharePercent` / `severity` / verbatim evidence / 7-day cache) for "category comparison" and "competitor complaints" tasks. For general web sentiment or community discussions, use a web-search skill instead — this one only mines app-store reviews.
 
-All calls go through `scripts/mcp_call.sh` (handles MCP/SSE plumbing, pretty-prints JSON). **No API key required** — you get unlimited cached results plus a few new (uncached) analyses per day. Heavy use? Get a free key at https://hawkmill.com/#get-key (10 analyses/month + 10 signup bonus):
+All calls go through `scripts/mcp_call.sh` (handles MCP/SSE plumbing, pretty-prints JSON). **No API key required** — you get unlimited cached results plus a few new (uncached) analyses per day. Heavy use? Get a free key at https://hawkmill.com/#get-key (every key starts with a 14-day Starter trial, then 10 analyses/month + 10 signup bonus):
 
 ```bash
 SCRIPT=scripts/mcp_call.sh   # adjust path if installed elsewhere
