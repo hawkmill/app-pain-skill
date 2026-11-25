@@ -1,7 +1,7 @@
 ---
 name: app-pain
 version: "1.0.0"
-description: "Mine user pain points from iOS/Android app-store reviews — LLM-clustered negative reviews into structured pain points (share %, severity, verbatim evidence), with cross-app competitor comparison. No API key needed (free keyless allowance; cached results unlimited). Use when the user wants to research user pain points for an app category (meditation, short-video, habit trackers...), compare top apps' common complaints, dig into an app's negative reviews, or run competitor review analysis. Triggers: app pain points, review mining, negative review analysis, competitor comparison, mine pain points."
+description: "Mine user pain points from iOS/Android/macOS app-store reviews, WordPress plugin reviews and Chrome extension reviews — LLM-clustered negative reviews into structured pain points (share %, severity, verbatim evidence), with cross-app competitor comparison. No API key needed (free keyless allowance; cached results unlimited). Use when the user wants to research user pain points for an app category (meditation, short-video, habit trackers...), compare top apps' common complaints, dig into an app's negative reviews, or run competitor review analysis. Triggers: app pain points, review mining, negative review analysis, competitor comparison, mine pain points."
 ---
 
 # App Pain — app-store review mining & pain-point comparison
